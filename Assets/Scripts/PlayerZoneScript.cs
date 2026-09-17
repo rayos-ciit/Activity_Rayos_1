@@ -1,8 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 
-public class GameLogic : MonoBehaviour
+public class PlayerZoneScript : MonoBehaviour
 {
+    [Header("Rocket Barrage")]
+    public GameObject rocketPrefab;
+    public int rocketCount = 4;
+    public int maxRockets = 8;
+    public float fireRate = 3f;
+    private float fireTimer = 0f;
+
+    [Header("Power-Ups")]
+    public Transform powerUpZone;
+    public float pickupThreshold = 1.0f;
+
     //player movement speed
     [Header("Movement")]
     public float speed = 5f;
@@ -31,15 +42,41 @@ public class GameLogic : MonoBehaviour
 
     void Update()
     {
-        //get movement for vector add and scalar multiply
+        //cardinal movement
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
+
+        //if moving horizontally cancel vertical input
+        if (x != 0) y = 0; 
 
         //to make sure that going directional doesn't make player move faster
         Vector3 moveDir = new Vector3(x, y, 0).normalized;
 
         //transform player by adding scaled vector to the current position
         transform.position += moveDir * speed * Time.deltaTime;
+
+
+        //timer for rocket barrage
+        fireTimer += Time.deltaTime;
+        if (fireTimer >= fireRate)
+        {
+            FireRockets();
+            fireTimer = 0f;
+        }
+
+
+        //prox of power-up
+        if (powerUpZone != null && powerUpZone.gameObject.activeSelf)
+        {
+            float distanceToPowerUp = Vector3.Distance(transform.position, powerUpZone.position);
+            if (distanceToPowerUp <= pickupThreshold)
+            {
+                rocketCount = Mathf.Min(rocketCount + 1, maxRockets);
+                powerUpZone.gameObject.SetActive(false); 
+            }
+        }
+
+
 
         //distance calculation
         float distanceToNoGo = Vector3.Distance(transform.position, noGoZone.position);
@@ -71,6 +108,29 @@ public class GameLogic : MonoBehaviour
         if (distanceToFinish <= winThreshold)
         {
             winUI.SetActive(true);
+        }
+    }
+
+    void FireRockets()
+    {
+        if (rocketPrefab == null) return;
+
+        float angleStep = 360f / rocketCount;
+        float currentAngle = angleStep / 2f; 
+
+        for (int i = 0; i < rocketCount; i++)
+        {
+            // convertion from angle to radians
+            float radians = currentAngle * Mathf.Deg2Rad;
+            float dirX = Mathf.Cos(radians);
+            float dirY = Mathf.Sin(radians);
+            Vector3 fireDirection = new Vector3(dirX, dirY, 0);
+
+            //spawn and initialize
+            GameObject newRocket = Instantiate(rocketPrefab, transform.position, Quaternion.identity);
+            newRocket.GetComponent<Rocket>().Initialize(fireDirection);
+
+            currentAngle += angleStep;
         }
     }
 }
