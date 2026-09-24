@@ -3,19 +3,32 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     public float speed = 8f;
-    public float lifetime = 3f; 
+    public float hitThreshold = 0.5f;
     private Vector3 moveDirection;
+    private Transform player;
 
-    
-    public void Initialize(Vector3 direction)
+    public void Initialize(Vector3 direction, Transform targetPlayer)
     {
         moveDirection = direction.normalized;
-        Destroy(gameObject, lifetime); 
+        player = targetPlayer;
+        Destroy(gameObject, 4f); 
     }
 
     void Update()
     {
-        
-        transform.position += moveDirection * speed * Time.deltaTime;
+        if (GameManager.Instance.isGameOver) return;
+
+        transform.position += moveDirection * speed * Time.deltaTime; //scale magnitude
+        CheckCollision();
+    }
+
+    void CheckCollision()
+    {
+        //checking distance using magnitude
+        if (player != null && (player.position - transform.position).magnitude < hitThreshold)
+        {
+            GameManager.Instance.PlayerHit();
+            Destroy(gameObject);
+        }
     }
 }
