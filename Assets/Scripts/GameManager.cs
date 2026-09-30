@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
     private float ghostStartFill = 1f;
 
     [Header("Coin System")]
-    public Text coinText;
+    public TMP_Text coinText;
     public RectTransform coinIconUI;
     private float displayCoins = 0f;
     private int targetCoins = 0;

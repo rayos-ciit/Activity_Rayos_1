@@ -47,13 +47,14 @@ public abstract class TurretParent : MonoBehaviour
         return closest;
     }
 
-    protected void Fire(Vector3 dir)
+   protected void Fire(Vector3 dir)
     {
         if (rocketPrefab != null)
         {
             GameObject proj = Instantiate(rocketPrefab, transform.position, Quaternion.identity);
-            //rockets will now hit any enemy
-            proj.GetComponent<Rocket>().Initialize(dir, null); 
+            
+            // Only pass 'dir'. The Rocket now finds the enemies on its own!
+            proj.GetComponent<Rocket>().Initialize(dir); 
         }
     }
 
