@@ -3,14 +3,11 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     public float speed = 8f;
-    public float hitThreshold = 0.5f;
     private Vector3 moveDirection;
-    private Transform player;
 
-    public void Initialize(Vector3 direction, Transform targetPlayer)
+    public void Initialize(Vector3 direction)
     {
         moveDirection = direction.normalized;
-        player = targetPlayer;
         Destroy(gameObject, 4f); 
     }
 
@@ -18,17 +15,18 @@ public class Rocket : MonoBehaviour
     {
         if (GameManager.Instance.isGameOver) return;
 
-        transform.position += moveDirection * speed * Time.deltaTime; //scale magnitude
-        CheckCollision();
-    }
-
-    void CheckCollision()
-    {
-        //checking distance using magnitude
-        if (player != null && (player.position - transform.position).magnitude < hitThreshold)
+        transform.position += moveDirection * speed * Time.deltaTime;
+        
+        //collision check for all enemies
+        for (int i = GameManager.Instance.activeCreatures.Count - 1; i >= 0; i--)
         {
-            GameManager.Instance.PlayerHit();
-            Destroy(gameObject);
+            Transform enemy = GameManager.Instance.activeCreatures[i];
+            if (enemy != null && (enemy.position - transform.position).magnitude < 0.5f)
+            {
+                enemy.GetComponent<Creature>().Die(); //one hit kill
+                Destroy(gameObject);
+                return;
+            }
         }
     }
 }
