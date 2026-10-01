@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         if (Mathf.Abs(displayCoins - targetCoins) > 0.1f)
         {
             displayCoins = Mathf.Lerp(displayCoins, targetCoins, Time.deltaTime * 5f);
-            coinText.text = "Coins: " + Mathf.RoundToInt(displayCoins);
+            coinText.text = "" + Mathf.RoundToInt(displayCoins);
         }
     }
 }
