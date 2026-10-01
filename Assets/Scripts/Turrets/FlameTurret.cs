@@ -33,7 +33,7 @@ public class FlameTurret : TurretParent
         if (delta <= coneAngle / 2f)
         {
             //face target always
-            transform.rotation = Quaternion.Euler(0f, 0f, pAngle + 90f);
+            transform.rotation = Quaternion.Euler(0f, 0f, pAngle);
             
             fireTimer += Time.deltaTime;
             if (fireTimer >= 0.1f) 

@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 145571264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.97, y: -5.01, z: 0}
+  m_LocalPosition: {x: 0.8, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -610,7 +610,7 @@ Transform:
   m_GameObject: {fileID: 683487393}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.85, y: -4.98, z: 0}
+  m_LocalPosition: {x: -3.3, y: -4.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -641,7 +641,7 @@ Transform:
   m_GameObject: {fileID: 768047616}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.07, y: 4.34, z: 0}
+  m_LocalPosition: {x: 4.58, y: 5.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -810,7 +810,7 @@ Transform:
   m_GameObject: {fileID: 976365648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.93, y: -4.98, z: 0}
+  m_LocalPosition: {x: 4.29, y: -5.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -825,16 +825,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 976365648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86e8dcd47a176c4391387d2937e0eff, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e9aa98a6ab57874cae06024c9b0a216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatureSpawner
   creaturePrefab: {fileID: 4430541480289487942, guid: 188d0bb0045396a4dbdad01721ee2bd0, type: 3}
-  assignedPath:
-  - {fileID: 768047617}
-  - {fileID: 768047617}
-  - {fileID: 145571265}
-  - {fileID: 1595813635}
   spawnRate: 2.5
+  spawnPoint: {fileID: 976365649}
+  controlPoint1: {fileID: 768047617}
+  controlPoint2: {fileID: 145571265}
+  targetPoint: {fileID: 1595813635}
 --- !u!1 &1036420800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1089,7 @@ Transform:
   m_GameObject: {fileID: 1235176267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.39, y: -2.94, z: 0}
+  m_LocalPosition: {x: 8.91, y: 1.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1105,15 +1104,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1235176267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86e8dcd47a176c4391387d2937e0eff, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ec5efa3e362c314b96348761b41b9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatureSpawner
   creaturePrefab: {fileID: 4430541480289487942, guid: 188d0bb0045396a4dbdad01721ee2bd0, type: 3}
-  assignedPath:
-  - {fileID: 1235176268}
-  - {fileID: 683487394}
-  - {fileID: 1595813635}
   spawnRate: 2.5
+  spawnPoint: {fileID: 1235176268}
+  controlPoint: {fileID: 683487394}
+  targetPoint: {fileID: 1595813635}
 --- !u!1 &1321713763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1310,7 @@ Transform:
   m_GameObject: {fileID: 1321713763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.04, y: -4.7, z: 0}
+  m_LocalPosition: {x: -1.14, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1636,13 +1634,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574963800}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.57, y: -4.7, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.71940625, w: 0.6945896}
+  m_LocalPosition: {x: -8.519867, y: -0.5821667, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.011}
 --- !u!114 &1574963805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,8 +1653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a41b2b74a69abe498828af2e699cd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SniperTurret
-  range: 5
-  fireRate: 1
+  range: 15
+  fireRate: 5
   rocketPrefab: {fileID: 6991328509131206934, guid: 08e6d09387305da42b0ddc19e5592429, type: 3}
 --- !u!1 &1595813634
 GameObject:
@@ -1683,7 +1681,7 @@ Transform:
   m_GameObject: {fileID: 1595813634}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.23, y: 4.51, z: 0}
+  m_LocalPosition: {x: -8.91, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2064,13 +2062,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066388200}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -8.56, y: 2.57, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.93585366, w: 0.352389}
+  m_LocalPosition: {x: -1.6, y: 3.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -138.733}
 --- !u!114 &2066388205
 MonoBehaviour:
   m_ObjectHideFlags: 0
