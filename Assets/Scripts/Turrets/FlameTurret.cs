@@ -30,14 +30,14 @@ public class FlameTurret : TurretParent
         float pAngle = (Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg) - 90f;
         float delta = Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, pAngle));
 
+        //checks for enemy
         if (delta <= coneAngle / 2f)
         {
-            //face target always
-            transform.rotation = Quaternion.Euler(0f, 0f, pAngle);
-            
+
             fireTimer += Time.deltaTime;
             if (fireTimer >= 0.1f) 
             { 
+                //fire when spotted
                 Fire(transform.up); 
                 fireTimer = 0f; 
             }
