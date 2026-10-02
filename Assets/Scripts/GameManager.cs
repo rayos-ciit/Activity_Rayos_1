@@ -43,7 +43,17 @@ public class GameManager : MonoBehaviour
         ghostLerpT = 0f;
         ghostStartFill = ghostHpBar.fillAmount;
         
-        if (currentHP <= 0) isGameOver = true;
+        if (currentHP <= 0 && !isGameOver) 
+        {
+            isGameOver = true;
+            
+            //changed this so that the HPBar emptying makes all active creatures stop moving
+            foreach (Transform creature in activeCreatures)
+            {
+                if (creature != null) Destroy(creature.gameObject);
+            }
+            activeCreatures.Clear();
+        }
     }
 
     void ProcessGhostHP()

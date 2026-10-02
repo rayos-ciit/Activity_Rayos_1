@@ -13,7 +13,7 @@ Activity 3 implemented three turrets (sniper, flamethrower, shotgun) and also ad
 Activity 4 implemented beizer and cubic equations for pathing, also implemented ghosthpbar and coin UI.
 
 ## Gameplay Demonstration
-[Watch the mechanics demonstration here](https://drive.google.com/file/d/1rZQvPsc6qDn9ah228rteu7GYv0qOPyL5/view?usp=sharing)
+[Watch the mechanics demonstration here](https://drive.google.com/file/d/1AL0Ulx5yxGhlron4XbxCm4yC0ePnWMmR/view?usp=sharing)
 
 
 

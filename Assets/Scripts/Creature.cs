@@ -15,6 +15,7 @@ public class Creature : MonoBehaviour
 
     void Update()
     {
+    
         if (GameManager.Instance.isGameOver) return;
 
         t += speed * Time.deltaTime;
@@ -26,7 +27,6 @@ public class Creature : MonoBehaviour
         }
         else
         {
-            
             if (pathPoints.Length == 3)
                 transform.position = EquationsUtility.QuadraticFast(pathPoints[0].position, pathPoints[1].position, pathPoints[2].position, t);
             else if (pathPoints.Length == 4)
